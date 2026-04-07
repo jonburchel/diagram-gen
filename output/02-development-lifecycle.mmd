@@ -1,0 +1,18 @@
+---
+title: Development Lifecycle
+---
+graph LR
+    Create["1. Create<br/>Define agent"]:::msBlue
+    Test["2. Test<br/>Playground / local"]:::msYellow
+    Trace["3. Trace<br/>Inspect decisions"]:::msPurple
+    Evaluate["4. Evaluate<br/>Measure quality"]:::msGreen
+    Publish["5. Publish<br/>Stable endpoint"]:::msBlue
+    Monitor["6. Monitor<br/>Dashboards"]:::msGreen
+
+    Create --> Test --> Trace --> Evaluate --> Publish --> Monitor
+    Monitor -.->|"iterate"| Create
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px

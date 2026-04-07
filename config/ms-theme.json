@@ -1,0 +1,40 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#0078D4",
+    "primaryTextColor": "#FFFFFF",
+    "primaryBorderColor": "#005A9E",
+    "secondaryColor": "#F3F2F1",
+    "secondaryTextColor": "#323130",
+    "secondaryBorderColor": "#D2D0CE",
+    "tertiaryColor": "#E1DFDD",
+    "tertiaryTextColor": "#323130",
+    "lineColor": "#605E5C",
+    "textColor": "#323130",
+    "mainBkg": "#0078D4",
+    "nodeBorder": "#005A9E",
+    "clusterBkg": "#F3F2F1",
+    "clusterBorder": "#D2D0CE",
+    "titleColor": "#323130",
+    "edgeLabelBackground": "#FFFFFF",
+    "fontFamily": "Segoe UI, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontSize": "14px",
+    "darkMode": false,
+    "background": "#FFFFFF"
+  },
+  "flowchart": {
+    "useMaxWidth": false,
+    "htmlLabels": true,
+    "curve": "basis",
+    "padding": 15,
+    "nodeSpacing": 50,
+    "rankSpacing": 60
+  },
+  "sequence": {
+    "height": 40,
+    "actorMargin": 80,
+    "mirrorActors": false,
+    "bottomMarginAdj": 1,
+    "useMaxWidth": false
+  }
+}

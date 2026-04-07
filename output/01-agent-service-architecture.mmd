@@ -1,0 +1,68 @@
+---
+title: Agent Service Architecture
+---
+graph TB
+    subgraph Portal["Foundry Portal"]
+        direction TB
+        UI(["Developer / Admin"]):::msNeutral
+        Playground["Agents Playground"]:::msWhite
+    end
+
+    subgraph AgentService["Agent Service"]
+        direction TB
+        Runtime["Agent Runtime"]:::msBlue
+        Identity["Identity & Security<br/>Entra ID, RBAC"]:::msPurple
+        Observe["Observability<br/>Tracing & Metrics"]:::msGreen
+    end
+
+    subgraph AgentTypes["Agent Types"]
+        direction LR
+        Prompt["Prompt<br/>Agents"]:::msBlue
+        Workflow["Workflow<br/>Agents"]:::msYellow
+        Hosted["Hosted<br/>Agents"]:::msPurple
+    end
+
+    subgraph Tools["Tools & Integrations"]
+        direction LR
+        WebSearch["Web Search"]:::msWhite
+        FileSearch["File Search"]:::msWhite
+        CodeInterp["Code<br/>Interpreter"]:::msWhite
+        MCP["MCP<br/>Servers"]:::msWhite
+        CustomFn["Custom<br/>Functions"]:::msWhite
+    end
+
+    subgraph Models["Model Catalog"]
+        direction LR
+        GPT["GPT-4o"]:::msGreen
+        Llama["Llama"]:::msGreen
+        DeepSeek["DeepSeek"]:::msGreen
+    end
+
+    subgraph Publishing["Publishing Targets"]
+        direction LR
+        Endpoint["API Endpoint"]:::msGray
+        Teams["Microsoft Teams"]:::msGray
+        Copilot365["M365 Copilot"]:::msGray
+    end
+
+    UI --> Playground
+    Playground --> Runtime
+    Runtime --> Prompt
+    Runtime --> Workflow
+    Runtime --> Hosted
+    Prompt --> Tools
+    Workflow --> Tools
+    Hosted --> Tools
+    Runtime --> Models
+    Identity --> Runtime
+    Observe --> Runtime
+    Runtime --> Publishing
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msRed fill:#D13438,stroke:#A4262C,color:#fff,stroke-width:2px
+classDef msNeutral fill:#F3F2F1,stroke:#D2D0CE,color:#323130,stroke-width:2px
+classDef msGray fill:#605E5C,stroke:#484644,color:#fff,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px
+classDef msWhite fill:#FFFFFF,stroke:#D2D0CE,color:#323130,stroke-width:1.5px

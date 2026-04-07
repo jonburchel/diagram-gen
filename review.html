@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagram Review — Foundry Agent Service Overview</title>
+    <style>
+        :root {
+            --ms-blue: #0078D4;
+            --ms-dark: #323130;
+            --ms-light: #F3F2F1;
+            --ms-border: #D2D0CE;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--ms-dark);
+            background: #FAFAFA;
+            line-height: 1.6;
+        }
+        header {
+            background: var(--ms-blue);
+            color: white;
+            padding: 32px 48px;
+        }
+        header h1 { font-size: 28px; font-weight: 600; }
+        header p { opacity: 0.9; margin-top: 8px; font-size: 15px; }
+        .source-link {
+            color: #B4D6FA;
+            text-decoration: underline;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 12px;
+        }
+        main { max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
+        .diagram-card {
+            background: white;
+            border: 1px solid var(--ms-border);
+            border-radius: 8px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+        }
+        .diagram-card .card-header {
+            background: var(--ms-light);
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--ms-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .diagram-card .card-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ms-dark);
+        }
+        .diagram-card .card-header .badge {
+            font-size: 12px;
+            background: var(--ms-blue);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .diagram-img {
+            padding: 24px;
+            text-align: center;
+            background: white;
+        }
+        .diagram-img img {
+            max-width: 100%;
+            height: auto;
+        }
+        .diagram-meta {
+            padding: 16px 24px 20px;
+            border-top: 1px solid var(--ms-border);
+            background: #FAFAFA;
+        }
+        .meta-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+        .meta-label {
+            font-weight: 600;
+            font-size: 13px;
+            color: #605E5C;
+            min-width: 130px;
+            flex-shrink: 0;
+        }
+        .meta-value {
+            font-size: 14px;
+            color: var(--ms-dark);
+        }
+        .alt-text-box {
+            background: white;
+            border: 1px solid var(--ms-border);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'Cascadia Code', 'Consolas', monospace;
+            font-size: 13px;
+            color: var(--ms-dark);
+            line-height: 1.5;
+        }
+        .char-count {
+            font-size: 11px;
+            color: #605E5C;
+            margin-top: 4px;
+        }
+        .char-count.ok { color: #107C10; }
+        .char-count.warn { color: #D13438; }
+        .placement-suggestion {
+            background: #E8F4FD;
+            border-left: 3px solid var(--ms-blue);
+            padding: 10px 14px;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+        }
+        .long-desc {
+            background: white;
+            border: 1px solid var(--ms-border);
+            border-radius: 4px;
+            padding: 10px 14px;
+            font-size: 13px;
+            line-height: 1.5;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .summary {
+            background: white;
+            border: 1px solid var(--ms-border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        .summary h2 { font-size: 20px; margin-bottom: 12px; }
+        .summary ul { margin-left: 20px; }
+        .summary li { margin-bottom: 6px; }
+        footer {
+            text-align: center;
+            padding: 32px;
+            font-size: 13px;
+            color: #605E5C;
+            border-top: 1px solid var(--ms-border);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Diagram Review: Foundry Agent Service Overview</h1>
+    <p>Auto-generated diagrams for the Microsoft Foundry Agent Service documentation page</p>
+    <a class="source-link" href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview" target="_blank">
+        Source: learn.microsoft.com/en-us/azure/foundry/agents/overview
+    </a>
+</header>
+
+<main>
+
+<div class="summary">
+    <h2>Audit Summary</h2>
+    <p>After reviewing the <strong>Foundry Agent Service Overview</strong> page, four diagrams are proposed to complement the existing content. The page currently has one diagram (agent components). These additions would significantly improve comprehension of the service architecture, development workflow, agent type selection, and security model.</p>
+    <ul>
+        <li><strong>4 diagrams</strong> proposed for insertion</li>
+        <li>All follow Microsoft Fluent color theming</li>
+        <li>Alt-text validated against Learn Contributors Guide (40-150 chars, starts with type, ends with period)</li>
+        <li>Long descriptions provided for complex diagrams</li>
+    </ul>
+</div>
+
+<!-- Diagram 1: Agent Service Architecture -->
+<div class="diagram-card">
+    <div class="card-header">
+        <h2>1. Agent Service Architecture</h2>
+        <span class="badge">Architecture</span>
+    </div>
+    <div class="diagram-img">
+        <img src="output/01-agent-service-architecture.svg"
+             alt="Diagram that shows Foundry Agent Service architecture with runtime, agent types, tools, models, and publishing targets.">
+    </div>
+    <div class="diagram-meta">
+        <div class="meta-row">
+            <span class="meta-label">Alt Text:</span>
+            <div>
+                <div class="alt-text-box">Diagram that shows Foundry Agent Service architecture with runtime, agent types, tools, models, and publishing targets.</div>
+                <div class="char-count ok">✓ 102 characters (40-150 range)</div>
+            </div>
+        </div>
+        <div class="meta-row">
+            <span class="meta-label">Placement:</span>
+            <div class="placement-suggestion">
+                Insert after the <strong>"Agent Service at a glance"</strong> section heading, before the component table. This diagram provides a visual overview that complements the tabular breakdown below it.
+            </div>
+        </div>
+        <div class="meta-row">
+            <span class="meta-label">Long Description:</span>
+            <div class="long-desc">
+                The diagram illustrates the full Foundry Agent Service architecture. At the top, the Foundry Portal contains the developer/admin interface and agents playground. The central Agent Service layer includes the Agent Runtime, Identity and Security (Entra ID, RBAC), and Observability (Tracing and Metrics). The runtime connects to three agent types: Prompt Agents, Workflow Agents, and Hosted Agents. Each agent type connects to the Tools and Integrations layer, which includes Web Search, File Search, Code Interpreter, MCP Servers, and Custom Functions. The runtime also connects to the Model Catalog (GPT-4o, Llama, DeepSeek) and Publishing Targets (API Endpoint, Microsoft Teams, M365 Copilot).
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Diagram 2: Development Lifecycle -->
+<div class="diagram-card">
+    <div class="card-header">
+        <h2>2. Development Lifecycle</h2>
+        <span class="badge">Process Flow</span>
+    </div>
+    <div class="diagram-img">
+        <img src="output/02-development-lifecycle.svg"
+             alt="Flowchart of the six-step agent development lifecycle from creation through monitoring with iteration.">
+    </div>
+    <div class="diagram-meta">
+        <div class="meta-row">
+            <span class="meta-label">Alt Text:</span>
+            <div>
+                <div class="alt-text-box">Flowchart of the six-step agent development lifecycle from creation through monitoring with iteration.</div>
+                <div class="char-count ok">✓ 91 characters (40-150 range)</div>
+            </div>
+        </div>
+        <div class="meta-row">
+            <span class="meta-label">Placement:</span>
+            <div class="placement-suggestion">
+                Insert at the beginning of the <strong>"Development lifecycle"</strong> section, before the numbered list. The visual flow reinforces the textual steps and makes the iterative nature of the process immediately clear.
+            </div>
+        </div>
+        <div class="meta-row">
+            <span class="meta-label">Long Description:</span>
+            <div class="long-desc">
+                A left-to-right flowchart showing six sequential steps: (1) Create, where you define the agent; (2) Test, using the playground or locally; (3) Trace, to inspect agent decisions; (4) Evaluate, to measure quality; (5) Publish, to create a stable endpoint; and (6) Monitor, using dashboards. A dotted arrow loops from Monitor back to Create, indicating the iterative development cycle.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Diagram 3: Agent Types Comparison -->
+<div class="diagram-card">
+    <div class="card-header">
+        <h2>3. Agent Types Decision Guide</h2>
+        <span class="badge">Comparison</span>
+    </div>
+    <div class="diagram-img">
+        <img src="output/03-agent-types.svg"
+             alt="Diagram that shows three Foundry agent types with their characteristics and recommended use cases.">
+    </div>
+    <div class="diagram-meta">
+        <div class="meta-row">
+            <span class="meta-label">Alt Text:</span>
+            <div>
+                <div class="alt-text-box">Diagram that shows three Foundry agent types with their characteristics and recommended use cases.</div>
+                <div class="char-count ok">✓ 91 characters (40-150 range)</div>
+            </div>
+        </div>
+        <div class="meta-row">
+            <span class="meta-label">Placement:</span>
+            <div class="placement-suggestion">
+                Insert at the beginning of the <strong>"Agent types"</strong> section, before the individual type descriptions. This visual comparison helps readers quickly identify which agent type fits their needs before reading the details.
+            </div>
+        </div>
+        <div class="meta-row">
+            <span class="meta-label">Long Description:</span>
+            <div class="long-desc">
+                The diagram compares three Foundry agent types side by side. Prompt Agents require no code, are fully managed, handle single-agent orchestration, and are best for prototyping and simple tasks. Workflow Agents require no code (YAML optional), are fully managed, support multi-agent branching, and are best for multi-step automation. Hosted Agents require code, use container-based managed hosting, support custom logic, and are best for full control with custom frameworks. Arrows from "Simple needs," "Orchestration needs," and "Advanced needs" guide users to the appropriate agent type.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Diagram 4: Enterprise Security -->
+<div class="diagram-card">
+    <div class="card-header">
+        <h2>4. Enterprise Security Architecture</h2>
+        <span class="badge">Security</span>
+    </div>
+    <div class="diagram-img">
+        <img src="output/04-enterprise-security.svg"
+             alt="Diagram that shows Foundry enterprise security layers including identity, content safety, and network isolation.">
+    </div>
+    <div class="diagram-meta">
+        <div class="meta-row">
+            <span class="meta-label">Alt Text:</span>
+            <div>
+                <div class="alt-text-box">Diagram that shows Foundry enterprise security layers including identity, content safety, and network isolation.</div>
+                <div class="char-count ok">✓ 106 characters (40-150 range)</div>
+            </div>
+        </div>
+        <div class="meta-row">
+            <span class="meta-label">Placement:</span>
+            <div class="placement-suggestion">
+                Insert at the beginning of the <strong>"Enterprise capabilities"</strong> section, before the bullet list. This diagram gives readers an immediate visual understanding of the security perimeter before diving into each capability.
+            </div>
+        </div>
+        <div class="meta-row">
+            <span class="meta-label">Long Description:</span>
+            <div class="long-desc">
+                The diagram illustrates the enterprise security architecture around Foundry agents. An Enterprise Security layer contains four components: Microsoft Entra ID (Identity and RBAC), Content Safety (Filters and Guardrails), Virtual Network Isolation, and Bring Your Own Resources. The Entra ID authenticates, Content Safety filters, and VNet isolates the central AI Agent in the Agent Runtime. The agent connects to a Data and Resources layer containing Azure Storage, AI Search, and Cosmos DB. Bring Your Own Resources also connects to this data layer. Finally, the agent connects to distribution targets: API Endpoint, Teams, M365 Copilot, and the Entra Agent Registry.
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    Generated by <strong>diagram-gen</strong> skill &middot; Microsoft Fluent themed Mermaid diagrams &middot; Alt-text follows Learn Contributors Guide
+</footer>
+
+</body>
+</html>

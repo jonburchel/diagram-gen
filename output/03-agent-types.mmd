@@ -1,0 +1,39 @@
+---
+title: Agent Types Comparison
+---
+graph TB
+    subgraph PromptAgent["Prompt Agents"]
+        direction TB
+        PA_Code["No Code Required"]:::msGreen
+        PA_Host["Fully Managed"]:::msBlue
+        PA_Orch["Single Agent"]:::msNeutral
+        PA_Best["Best for: Prototyping<br/>and simple tasks"]:::msWhite
+    end
+
+    subgraph WorkflowAgent["Workflow Agents"]
+        direction TB
+        WA_Code["No Code<br/>YAML Optional"]:::msGreen
+        WA_Host["Fully Managed"]:::msBlue
+        WA_Orch["Multi-Agent<br/>Branching"]:::msYellow
+        WA_Best["Best for: Multi-step<br/>automation"]:::msWhite
+    end
+
+    subgraph HostedAgent["Hosted Agents"]
+        direction TB
+        HA_Code["Code Required"]:::msRed
+        HA_Host["Container-Based<br/>Managed"]:::msBlue
+        HA_Orch["Custom Logic"]:::msPurple
+        HA_Best["Best for: Full control<br/>custom frameworks"]:::msWhite
+    end
+
+    Simple(["Simple needs"]):::msNeutral --> PromptAgent
+    Orchestration(["Orchestration needs"]):::msNeutral --> WorkflowAgent
+    Advanced(["Advanced needs"]):::msNeutral --> HostedAgent
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msRed fill:#D13438,stroke:#A4262C,color:#fff,stroke-width:2px
+classDef msNeutral fill:#F3F2F1,stroke:#D2D0CE,color:#323130,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px
+classDef msWhite fill:#FFFFFF,stroke:#D2D0CE,color:#323130,stroke-width:1.5px

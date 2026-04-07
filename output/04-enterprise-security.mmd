@@ -1,0 +1,45 @@
+---
+title: Enterprise Security Architecture
+---
+graph TB
+    subgraph SecurityLayer["Enterprise Security"]
+        direction TB
+        EntraID["Microsoft Entra ID<br/>Identity & RBAC"]:::msPurple
+        ContentSafety["Content Safety<br/>Filters & Guardrails"]:::msRed
+        VNet["Virtual Network<br/>Isolation"]:::msBlue
+        BYOR["Bring Your Own<br/>Resources"]:::msGreen
+    end
+
+    subgraph AgentRuntime["Agent Runtime"]
+        Agent["AI Agent"]:::msBlue
+    end
+
+    subgraph DataLayer["Data & Resources"]
+        direction LR
+        Storage[("Azure Storage")]:::msGreen
+        Search[("AI Search")]:::msGreen
+        CosmosDB[("Cosmos DB")]:::msGreen
+    end
+
+    subgraph Distribution["Distribution"]
+        direction LR
+        API["API Endpoint"]:::msGray
+        Teams["Teams"]:::msGray
+        M365["M365 Copilot"]:::msGray
+        Registry["Entra Agent<br/>Registry"]:::msGray
+    end
+
+    EntraID -->|"authenticate"| Agent
+    ContentSafety -->|"filter"| Agent
+    VNet -->|"isolate"| Agent
+    Agent --> DataLayer
+    BYOR --> DataLayer
+    Agent --> Distribution
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msRed fill:#D13438,stroke:#A4262C,color:#fff,stroke-width:2px
+classDef msNeutral fill:#F3F2F1,stroke:#D2D0CE,color:#323130,stroke-width:2px
+classDef msGray fill:#605E5C,stroke:#484644,color:#fff,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px
