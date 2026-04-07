@@ -199,19 +199,7 @@ When generating review pages, audit reports, or standalone HTML files that refer
 const session = await joinSession({
     hooks: {
         onSessionStart: async () => {
-            await session.log("diagram-gen skill loaded — Microsoft-themed Mermaid diagrams ready");
-        },
-        onUserPromptSubmitted: async (input) => {
-            const prompt = (input.prompt || "").toLowerCase();
-            const diagramKeywords = [
-                "diagram", "flowchart", "architecture", "sequence", "mermaid",
-                "visualize", "illustrate", "draw", "chart", "graph",
-                "diagram_render", "diagram_generate", "diagram_convert",
-                "diagram_audit", "diagram_for_page",
-            ];
-            if (diagramKeywords.some(kw => prompt.includes(kw))) {
-                return { additionalContext: DIAGRAM_CONTEXT };
-            }
+            await session.log("diagram-gen skill loaded");
         },
     },
     tools: [
