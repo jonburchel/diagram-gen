@@ -165,6 +165,15 @@ When generating Mermaid diagrams, follow these conventions:
 - Label every connection when relationship isn't obvious
 - Use subgraphs for logical grouping (e.g., Azure Resource Group)
 
+### Edge Routing (CRITICAL: no lines through text)
+- NEVER create many-to-many edge patterns where edges cross through intermediate nodes or text labels
+- When multiple source nodes connect to multiple target nodes, use one of these strategies:
+  1. Switch direction (TB to LR or vice versa) so edges run parallel instead of crossing
+  2. Group sources in a subgraph with internal layout, connect subgraph outputs cleanly
+  3. Introduce an intermediary "hub" node that fans out, rather than direct many-to-many edges
+  4. Reorder nodes so edges flow naturally without crossing other elements
+- Always verify: if node A and node B both connect to nodes X, Y, Z, will any edge visually pass through another node? If yes, restructure.
+
 ### Alt-Text (Microsoft Learn guidelines)
 - 40-150 characters long
 - Begin with diagram type: "Diagram that shows...", "Flowchart of..."
