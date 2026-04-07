@@ -1,6 +1,6 @@
 ---
 name: diagram-gen
-description: "Generate Mermaid diagrams with Microsoft Fluent theming, alt-text, and review reports"
+description: "diagram-gen [describe | audit | convert] - Microsoft-themed Mermaid diagrams"
 ---
 
 # Diagram Generation Skill
