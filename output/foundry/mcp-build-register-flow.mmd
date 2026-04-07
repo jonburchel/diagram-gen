@@ -1,0 +1,19 @@
+---
+title: MCP Server Build and Register Flow
+---
+graph LR
+    Build["Build MCP Server<br/>Azure Functions"]:::msBlue
+    Test["Test Locally<br/>func start"]:::msYellow
+    Deploy["Deploy to Azure<br/>azd up"]:::msBlue
+    Secure["Secure Endpoint<br/>Auth and Key Vault"]:::msRed
+    Register["Register in<br/>API Center"]:::msGreen
+    Connect["Connect to<br/>Agent Service"]:::msPurple
+    Verify["Verify<br/>End-to-End"]:::msGreen
+
+    Build --> Test --> Deploy --> Secure --> Register --> Connect --> Verify
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msRed fill:#D13438,stroke:#A4262C,color:#fff,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px

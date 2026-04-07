@@ -1,0 +1,34 @@
+---
+title: HA Shared Responsibility Model
+---
+graph TB
+    subgraph Microsoft["Microsoft Manages"]
+        direction TB
+        ControlPlane["Control Plane"]:::msBlue
+        CapHost["Capability Host<br/>Platform"]:::msBlue
+        Metadata["Project<br/>Metadata"]:::msBlue
+    end
+
+    subgraph Customer["Customer Manages"]
+        direction TB
+        CosmosDB[("Cosmos DB<br/>Configure redundancy")]:::msGreen
+        AISearch[("AI Search<br/>Configure replicas")]:::msGreen
+        Storage[("Storage<br/>Configure GRS")]:::msGreen
+        KeyVault["Key Vault<br/>Purge protection"]:::msPurple
+        AppInsights["App Insights<br/>Monitoring"]:::msPurple
+    end
+
+    subgraph Prevention["Prevention Controls"]
+        direction LR
+        Locks["Resource<br/>Locks"]:::msRed
+        Policy["Azure<br/>Policy"]:::msRed
+        IaC["Infrastructure<br/>as Code"]:::msRed
+    end
+
+    Microsoft -.->|"jointly operated"| Customer
+    Prevention -->|"protect"| Customer
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msRed fill:#D13438,stroke:#A4262C,color:#fff,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px

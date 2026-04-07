@@ -1,0 +1,26 @@
+---
+title: MCP Server Request Flow
+---
+graph LR
+    User(["User"]):::msNeutral
+    Agent["Foundry<br/>Agent"]:::msBlue
+    Runtime["Agent<br/>Runtime"]:::msBlue
+    MCP["MCP Server<br/>Azure Functions"]:::msPurple
+    InternalAPI["Internal<br/>API"]:::msGray
+    APICtr["Azure API<br/>Center"]:::msGreen
+
+    User -->|"prompt"| Agent
+    Agent -->|"tool call"| Runtime
+    Runtime -->|"MCP request"| MCP
+    MCP -->|"call"| InternalAPI
+    InternalAPI -->|"response"| MCP
+    MCP -->|"tool result"| Runtime
+    Runtime -->|"answer"| Agent
+    Agent -->|"response"| User
+    APICtr -.->|"catalog and<br/>governance"| MCP
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msNeutral fill:#F3F2F1,stroke:#D2D0CE,color:#323130,stroke-width:2px
+classDef msGray fill:#605E5C,stroke:#484644,color:#fff,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px

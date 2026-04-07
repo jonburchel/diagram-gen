@@ -1,0 +1,32 @@
+---
+title: CMK Encryption Architecture
+---
+graph TB
+    subgraph Foundry["Microsoft Foundry"]
+        direction TB
+        FoundryRes["Foundry<br/>Resource"]:::msBlue
+        Projects["Projects"]:::msBlue
+    end
+
+    subgraph KeyVault["Azure Key Vault"]
+        direction TB
+        CMK["Customer-Managed<br/>Key"]:::msPurple
+        AccessPolicy["Access Policy<br/>or RBAC"]:::msPurple
+    end
+
+    subgraph EncryptedData["Encrypted Data at Rest"]
+        direction LR
+        Artifacts[("Project<br/>Artifacts")]:::msGreen
+        Files[("Uploaded<br/>Files")]:::msGreen
+        EvalData[("Evaluation<br/>Data")]:::msGreen
+    end
+
+    FoundryRes --> Projects
+    Projects -->|"data at rest"| EncryptedData
+    CMK -->|"encrypts"| EncryptedData
+    FoundryRes -->|"references"| KeyVault
+    AccessPolicy -->|"authorizes"| FoundryRes
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px

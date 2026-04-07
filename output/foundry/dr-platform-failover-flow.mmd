@@ -1,0 +1,29 @@
+---
+title: Failover and Failback Procedure
+---
+graph LR
+    Detect["Detect<br/>Outage"]:::msRed
+    Decide{"Recover<br/>project?"}:::msYellow
+    Deploy["Deploy deps<br/>in standby<br/>region"]:::msBlue
+    Identity["Create<br/>managed<br/>identity"]:::msPurple
+    CreateProj["Create project<br/>in standby<br/>account"]:::msBlue
+    Redeploy["Redeploy agents<br/>from source<br/>control"]:::msBlue
+    UpdateClients["Update clients<br/>FQDN plus<br/>agent IDs"]:::msGreen
+    Operating["Operating in<br/>standby"]:::msYellow
+    PrimaryBack{"Primary<br/>restored?"}:::msYellow
+    DeleteStandby["Delete standby<br/>project plus<br/>deps"]:::msRed
+    Restored["Restored to<br/>primary"]:::msGreen
+
+    Detect --> Decide
+    Decide -->|"Yes"| Deploy
+    Decide -->|"No"| Restored
+    Deploy --> Identity --> CreateProj --> Redeploy --> UpdateClients --> Operating
+    Operating --> PrimaryBack
+    PrimaryBack -->|"Yes"| DeleteStandby --> Restored
+    PrimaryBack -->|"No"| Operating
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msRed fill:#D13438,stroke:#A4262C,color:#fff,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px

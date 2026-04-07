@@ -174,6 +174,17 @@ When generating Mermaid diagrams, follow these conventions:
 
 ### Output
 After generating Mermaid code, call the diagram_render tool to render it with Microsoft theming.
+
+### Review Reports and HTML Output
+When generating review pages, audit reports, or standalone HTML files that reference source articles:
+- Always make article paths clickable links to their live published URL.
+- For Microsoft Learn docs, convert repo paths to live URLs:
+  - \`articles/foundry/...\` becomes \`https://learn.microsoft.com/en-us/azure/foundry/...\`
+  - \`articles/foundry-local/...\` becomes \`https://learn.microsoft.com/en-us/azure/foundry-local/...\`
+  - Strip the \`.md\` extension from the URL.
+- For GitHub-hosted docs, link to the file on GitHub (e.g., \`https://github.com/{org}/{repo}/blob/main/{path}\`).
+- Style links with the Microsoft blue (#0078D4), no underline by default, underline on hover.
+- Open links in a new tab (target="_blank").
 `.trim();
 
 const session = await joinSession({

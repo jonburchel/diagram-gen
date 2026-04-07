@@ -1,0 +1,17 @@
+---
+title: DR Series Navigation
+---
+graph LR
+    Overview["1. DR Overview<br/>Limitations &<br/>Readiness"]:::msBlue
+    Platform["2. Platform<br/>Outage Recovery"]:::msYellow
+    DataLoss["3. Resource &<br/>Data Loss Recovery"]:::msRed
+    HA["High Availability<br/>& Resiliency"]:::msGreen
+
+    Overview -->|"prolonged<br/>regional outage"| Platform
+    Overview -->|"human/automation<br/>error"| DataLoss
+    HA -.->|"prevention &<br/>configuration"| Overview
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msRed fill:#D13438,stroke:#A4262C,color:#fff,stroke-width:2px

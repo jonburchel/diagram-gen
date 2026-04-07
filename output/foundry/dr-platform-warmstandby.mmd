@@ -1,0 +1,35 @@
+---
+title: Warm Standby Failover Architecture
+---
+graph TB
+    subgraph PrimaryRegion["Primary Region - Active"]
+        direction TB
+        PRI_Account["Foundry Account"]:::msBlue
+        PRI_Project["Project"]:::msBlue
+        PRI_Cosmos[("Cosmos DB")]:::msGreen
+        PRI_Search[("AI Search")]:::msGreen
+        PRI_Storage[("Storage")]:::msGreen
+        PRI_Account --> PRI_Project
+        PRI_Project --> PRI_Cosmos
+        PRI_Project --> PRI_Search
+        PRI_Project --> PRI_Storage
+    end
+
+    subgraph StandbyRegion["Standby Region - Warm"]
+        direction TB
+        STB_Account["Foundry Account<br/>pre-provisioned"]:::msYellow
+        STB_Note["No projects until<br/>failover triggered"]:::msWhite
+    end
+
+    Clients(["Clients or Gateway"]):::msNeutral
+
+    Clients -->|"normal traffic"| PRI_Account
+    Clients -.->|"failover routing"| STB_Account
+
+    PrimaryRegion -.->|"IaC templates<br/>plus source control"| StandbyRegion
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msNeutral fill:#F3F2F1,stroke:#D2D0CE,color:#323130,stroke-width:2px
+classDef msWhite fill:#FFFFFF,stroke:#D2D0CE,color:#323130,stroke-width:1.5px

@@ -1,0 +1,37 @@
+---
+title: DR Component Dependencies
+---
+graph TB
+    subgraph AgentService["Agent Service - Standard Mode"]
+        Runtime["Agent Runtime<br/>Control Plane"]:::msBlue
+        Agents["Agent Definitions"]:::msBlue
+        Threads["Conversation<br/>Threads"]:::msBlue
+    end
+
+    subgraph Dependencies["Capability Host Dependencies - Customer-Managed"]
+        CosmosDB[("Azure<br/>Cosmos DB")]:::msGreen
+        AISearch[("Azure<br/>AI Search")]:::msGreen
+        Storage[("Azure<br/>Storage")]:::msGreen
+    end
+
+    subgraph State["State Stored"]
+        Memory["enterprise_memory<br/>database"]:::msWhite
+        Indexes["File indexes and<br/>knowledge"]:::msWhite
+        Blobs["Uploaded files and<br/>knowledge assets"]:::msWhite
+    end
+
+    Runtime --> Agents
+    Runtime --> Threads
+    Agents --> CosmosDB
+    Threads --> CosmosDB
+    Agents --> AISearch
+    Threads --> AISearch
+    Agents --> Storage
+    Threads --> Storage
+    CosmosDB --> Memory
+    AISearch --> Indexes
+    Storage --> Blobs
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msWhite fill:#FFFFFF,stroke:#D2D0CE,color:#323130,stroke-width:1.5px

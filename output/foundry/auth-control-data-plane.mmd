@@ -1,0 +1,38 @@
+---
+title: Control Plane vs Data Plane
+---
+graph TB
+    subgraph ControlPlane["Control Plane - Resource Management"]
+        direction LR
+        CreateRes["Create<br/>Resources"]:::msBlue
+        AssignRoles["Assign<br/>Roles"]:::msBlue
+        SetupNetwork["Configure<br/>Networking"]:::msBlue
+        DeployModels["Deploy<br/>Models"]:::msBlue
+    end
+
+    subgraph DataPlane["Data Plane - Runtime Usage"]
+        direction LR
+        Chat["Chat and<br/>Inference"]:::msPurple
+        BuildAgents["Build<br/>Agents"]:::msPurple
+        RunEvals["Run<br/>Evaluations"]:::msPurple
+        Tracing["Tracing and<br/>Monitoring"]:::msPurple
+    end
+
+    subgraph RBAC["RBAC Surface"]
+        direction LR
+        Actions["actions<br/>permissions"]:::msGreen
+        DataActions["dataActions<br/>permissions"]:::msGreen
+    end
+
+    Admin(["Admin or<br/>IT Operator"]):::msNeutral
+    Developer(["Developer or<br/>Data Scientist"]):::msNeutral
+
+    Admin --> ControlPlane
+    Developer --> DataPlane
+    ControlPlane --> Actions
+    DataPlane --> DataActions
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px
+classDef msNeutral fill:#F3F2F1,stroke:#D2D0CE,color:#323130,stroke-width:2px

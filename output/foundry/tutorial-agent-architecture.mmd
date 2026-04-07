@@ -1,0 +1,33 @@
+---
+title: Enterprise Agent Tutorial Architecture
+---
+graph TB
+    User(["Developer"]):::msNeutral
+
+    subgraph Foundry["Microsoft Foundry"]
+        Agent["Modern Workplace<br/>Assistant Agent"]:::msBlue
+        Runtime["Agent Runtime"]:::msBlue
+    end
+
+    subgraph Knowledge["Knowledge Sources"]
+        direction LR
+        SharePoint["SharePoint<br/>Company Policies"]:::msPurple
+        MCPLearn["MCP Server<br/>Microsoft Learn"]:::msPurple
+    end
+
+    subgraph Evaluation["Evaluation Pipeline"]
+        direction LR
+        BatchEval["Batch<br/>Evaluation"]:::msGreen
+        Metrics["Quality<br/>Metrics"]:::msGreen
+    end
+
+    User -->|"query"| Agent
+    Agent --> Runtime
+    Runtime -->|"policy questions"| SharePoint
+    Runtime -->|"technical guidance"| MCPLearn
+    Agent --> Evaluation
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msNeutral fill:#F3F2F1,stroke:#D2D0CE,color:#323130,stroke-width:2px
+classDef msPurple fill:#8764B8,stroke:#6B4FA0,color:#fff,stroke-width:2px

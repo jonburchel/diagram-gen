@@ -1,0 +1,22 @@
+---
+title: Model Lifecycle in Foundry Local
+---
+graph LR
+    Download["Download<br/>from catalog"]:::msBlue
+    Cache[("Local<br/>cache")]:::msGreen
+    Load["Load into<br/>memory"]:::msBlue
+    Run["Run<br/>inference"]:::msGreen
+    Unload["Unload from<br/>memory"]:::msYellow
+    Delete["Delete from<br/>cache"]:::msRed
+
+    Download --> Cache
+    Cache --> Load
+    Load -->|"TTL active"| Run
+    Run --> Unload
+    Unload -.->|"reload"| Load
+    Cache --> Delete
+
+classDef msBlue fill:#0078D4,stroke:#005A9E,color:#fff,stroke-width:2px
+classDef msGreen fill:#107C10,stroke:#0B6A0B,color:#fff,stroke-width:2px
+classDef msYellow fill:#FFB900,stroke:#D48C00,color:#323130,stroke-width:2px
+classDef msRed fill:#D13438,stroke:#A4262C,color:#fff,stroke-width:2px
